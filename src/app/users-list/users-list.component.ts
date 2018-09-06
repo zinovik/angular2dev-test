@@ -42,9 +42,10 @@ export class UsersListComponent implements OnInit {
   }
 
   getUserById({ users, id }: { users: User[], id: number }): User {
-    return users.find(user => {
+    const originUser: User = users.find(user => {
       return user.id === id;
     });
+    return JSON.parse(JSON.stringify(originUser));
   }
 
 }

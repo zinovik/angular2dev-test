@@ -4,12 +4,56 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: 10;
-  background-color: rgb(255, 255, 255, 0.9);
+  z-index: 100;
+  background-color: rgb(255, 255, 255, 0.5);
   text-align: center;
+}
+
+.containter-div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  margin: 0 auto;
+  border: 1px black solid;
+  background-color: rgb(255, 255, 255, 1);
+}
+
+.close-button-container {
+  width: 100%;
+  text-align: right;
+}
+
+.close-button {
+  margin: 5px;
+  width: 42px;
+  height: 42px;
+  text-align: center;
+  font-size: 200%;
+  color: #aaa;
+  background-color: #eee;
+  float: right;
 }
 
 .close-button:hover {
   cursor: pointer;
-  color: red;
+  background-color: #ccc;
+}
+
+.details-table {
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.details-table tr td:first-child {
+  font-weight: bold;
+}
+
+.header-td {
+  text-align: center;
+}
+
+.details-table tr td {
+  padding: 3px;
 }

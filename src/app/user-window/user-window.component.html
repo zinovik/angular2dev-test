@@ -1,75 +1,88 @@
-<div *ngIf="user && user.id" class="modal-window">
-  <div>
-    <span (click)="closeModalClicked()" class="close-button">close [X]</span>
-    <br><br>
-    <div>
-      <span>Name: </span>
-      <span>{{ user.name }}</span>
+<div *ngIf="user && user.id" (click)="closeModalClicked()" class="modal-window">
+  <div class="containter-div" (click)="$event.stopPropagation()">
+
+    <div class="close-button-container">
+      <div (click)="closeModalClicked()" class="close-button">×</div>
     </div>
-    <div>
-      <span>Username: </span>
-      <span>{{ user.username }}</span>
-    </div>
-    <div>
-      <span>Email: </span>
-      <span>{{ user.email }}</span>
-    </div>
-    <br>
-    <div>
-      Address
-    </div>
-    <div>
-      <span>Street: </span>
-      <span>{{ user.address.street }}</span>
-    </div>
-    <div>
-      <span>Suite: </span>
-      <span>{{ user.address.suite }}</span>
-    </div>
-    <div>
-      <span>City: </span>
-      <span>{{ user.address.city }}</span>
-    </div>
-    <div>
-      <span>Zipcode: </span>
-      <span>{{ user.address.zipcode }}</span>
-    </div>
-    <br>
-    <div>
-      Geo
-    </div>
-    <div>
-      <span>Lat: </span>
-      <span>{{ user.address.geo.lat }}</span>
-    </div>
-    <div>
-      <span>Lng: </span>
-      <span>{{ user.address.geo.lng }}</span>
-    </div>
-    <br>
-    <div>
-      <span>Phone: </span>
-      <span>{{ user.phone }}</span>
-    </div>
-    <div>
-      <span>Website: </span>
-      <span>{{ user.website }}</span>
-    </div>
-    <br>
-    <div>
-      Company
-    </div>
-    <div>
-      <span>Company: </span>
-      <span>{{ user.company.name }}</span>
-    </div>
-    <div>
-      <span>Catch Phrase: </span>
-      <span>{{ user.company.catchPhrase }}</span>
-    </div>
-    <div>
-      <span>BS: </span>
-      <span>{{ user.company.bs }}</span>
-    </div>
+
+    <table class="details-table">
+      <tr>
+        <td>Name: </td>
+        <td>{{ user.name }}</td>
+      </tr>
+      <tr>
+        <td>Username: </td>
+        <td>{{ user.username }}</td>
+      </tr>
+      <tr>
+        <td>Email: </td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <br>
+
+      <tr>
+        <td colspan="2" class="header-td">
+          Address
+        </td>
+      </tr>
+      <tr>
+        <td>Street: </td>
+        <td>{{ user.address.street }}</td>
+      </tr>
+      <tr>
+        <td>Suite: </td>
+        <td>{{ user.address.suite }}</td>
+      </tr>
+      <tr>
+        <td>City: </td>
+        <td>{{ user.address.city }}</td>
+      </tr>
+      <tr>
+        <td>Zipcode: </td>
+        <td>{{ user.address.zipcode }}</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="header-td">
+          Geo
+        </td>
+      </tr>
+      <tr>
+        <td>Lat: </td>
+        <td>{{ user.address.geo.lat }}</td>
+      </tr>
+      <tr>
+        <td>Lng: </td>
+        <td>{{ user.address.geo.lng }}</td>
+      </tr>
+      <br>
+
+      <tr>
+        <td>Phone: </td>
+        <td>{{ user.phone }}</td>
+      </tr>
+      <tr>
+        <td>Website: </td>
+        <td>{{ user.website }}</td>
+      </tr>
+      <br>
+
+      <tr>
+        <td colspan="2" class="header-td">
+          Company
+        </td>
+      </tr>
+      <tr>
+        <td>Company: </td>
+        <td>{{ user.company.name }}</td>
+      </tr>
+      <tr>
+        <td>Catch Phrase: </td>
+        <td>{{ user.company.catchPhrase }}</td>
+      </tr>
+      <tr>
+        <td>BS: </td>
+        <td>{{ user.company.bs }}</td>
+      </tr>
+    </table>
   </div>
 </div>

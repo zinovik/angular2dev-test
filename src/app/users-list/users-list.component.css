@@ -1,4 +1,26 @@
-.user-row:hover {
+.users-table {
+  width: 800px;
+  border: 1px black solid;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.users-table tr td {
+  padding: 10px;
+}
+
+.users-table tr:nth-child(even) {
+  background-color: #eee;
+}
+
+.users-table tr.table-header {
+  font-weight: bold;
+  background: #777;
+  color: #fff;
+}
+
+.users-table tr.user-row:hover {
   cursor: pointer;
-  color: green;
+  background-color: #ccc;
 }

@@ -22,7 +22,7 @@ export class UserWindowComponent implements OnInit {
   }
 
   closeModalClicked(): void {
-    this.user = <User>{};
+    this.user.id = 0;
     this.location.replaceState(`users`);
   }
 
