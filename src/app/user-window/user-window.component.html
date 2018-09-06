@@ -1,9 +1,7 @@
 <div *ngIf="user && user.id" (click)="closeModalClicked()" class="modal-window">
   <div class="containter-div" (click)="$event.stopPropagation()">
 
-    <div class="close-button-container">
-      <div (click)="closeModalClicked()" class="close-button">×</div>
-    </div>
+    <div (click)="closeModalClicked()" class="close-button">×</div>
 
     <table class="details-table">
       <tr>
