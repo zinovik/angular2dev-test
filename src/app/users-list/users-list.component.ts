@@ -41,14 +41,10 @@ export class UsersListComponent implements OnInit {
     this.location.replaceState(`users/${user.id}`);
   }
 
-  closeModalClicked(): void {
-    this.user = <User>{};
-    this.location.replaceState(`users`);
-  }
-
   getUserById({ users, id }: { users: User[], id: number }): User {
     return users.find(user => {
       return user.id === id;
     });
   }
+
 }

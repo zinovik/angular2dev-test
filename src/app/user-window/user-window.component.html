@@ -1,0 +1,75 @@
+<div *ngIf="user && user.id" class="modal-window">
+  <div>
+    <span (click)="closeModalClicked()" class="close-button">close [X]</span>
+    <br><br>
+    <div>
+      <span>Name: </span>
+      <span>{{ user.name }}</span>
+    </div>
+    <div>
+      <span>Username: </span>
+      <span>{{ user.username }}</span>
+    </div>
+    <div>
+      <span>Email: </span>
+      <span>{{ user.email }}</span>
+    </div>
+    <br>
+    <div>
+      Address
+    </div>
+    <div>
+      <span>Street: </span>
+      <span>{{ user.address.street }}</span>
+    </div>
+    <div>
+      <span>Suite: </span>
+      <span>{{ user.address.suite }}</span>
+    </div>
+    <div>
+      <span>City: </span>
+      <span>{{ user.address.city }}</span>
+    </div>
+    <div>
+      <span>Zipcode: </span>
+      <span>{{ user.address.zipcode }}</span>
+    </div>
+    <br>
+    <div>
+      Geo
+    </div>
+    <div>
+      <span>Lat: </span>
+      <span>{{ user.address.geo.lat }}</span>
+    </div>
+    <div>
+      <span>Lng: </span>
+      <span>{{ user.address.geo.lng }}</span>
+    </div>
+    <br>
+    <div>
+      <span>Phone: </span>
+      <span>{{ user.phone }}</span>
+    </div>
+    <div>
+      <span>Website: </span>
+      <span>{{ user.website }}</span>
+    </div>
+    <br>
+    <div>
+      Company
+    </div>
+    <div>
+      <span>Company: </span>
+      <span>{{ user.company.name }}</span>
+    </div>
+    <div>
+      <span>Catch Phrase: </span>
+      <span>{{ user.company.catchPhrase }}</span>
+    </div>
+    <div>
+      <span>BS: </span>
+      <span>{{ user.company.bs }}</span>
+    </div>
+  </div>
+</div>
