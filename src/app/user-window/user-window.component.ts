@@ -22,6 +22,7 @@ export class UserWindowComponent implements OnInit {
   }
 
   closeModalClicked(): void {
+    // Zero id to hide the modal window (for next updating from the parent component)
     this.user.id = 0;
     this.location.replaceState(`users`);
   }

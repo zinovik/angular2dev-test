@@ -45,6 +45,7 @@ export class UsersListComponent implements OnInit {
     const originUser: User = users.find(user => {
       return user.id === id;
     });
+    // Create user object copy to keep original user unchangeable
     return JSON.parse(JSON.stringify(originUser));
   }
 
