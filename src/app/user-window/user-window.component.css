@@ -59,3 +59,10 @@
     width: 99%;
   }
 }
+
+@media only screen and (max-height: 548px) {
+  .containter-div {
+    top: 0px;
+    transform: translateY(0%);
+  }
+}
