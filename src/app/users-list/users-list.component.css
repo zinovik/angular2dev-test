@@ -24,3 +24,13 @@
   cursor: pointer;
   background-color: #ccc;
 }
+
+@media only screen and (max-width: 808px) {
+  .additional-columns {
+    display: none;
+  }
+
+  .users-table {
+    max-width: 400px;
+  }
+}

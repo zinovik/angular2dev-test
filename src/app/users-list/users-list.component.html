@@ -2,14 +2,14 @@
   <tr class="table-header">
     <td>#</td>
     <td>Name</td>
-    <td>Username</td>
-    <td>Email</td>
+    <td class="additional-columns">Username</td>
+    <td class="additional-columns">Email</td>
   </tr>
   <tr *ngFor="let user of users; let i = index" (click)="userClicked(user)" class="user-row">
     <td>{{ i + 1 }}</td>
     <td>{{ user.name }}</td>
-    <td>{{ user.username }}</td>
-    <td>{{ user.email }}</td>
+    <td class="additional-columns">{{ user.username }}</td>
+    <td class="additional-columns">{{ user.email }}</td>
   </tr>
 </table>
 
