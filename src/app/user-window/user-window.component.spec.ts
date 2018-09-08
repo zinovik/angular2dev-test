@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Location, LocationStrategy, PathLocationStrategy, APP_BASE_HREF } from '@angular/common';
-
 import { UserWindowComponent } from './user-window.component';
 
 describe('UserWindowComponent', () => {
@@ -11,11 +9,7 @@ describe('UserWindowComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UserWindowComponent],
-      providers: [
-        Location,
-        { provide: LocationStrategy, useClass: PathLocationStrategy },
-        { provide: APP_BASE_HREF, useValue: '/' },
-      ]
+      providers: []
     })
       .compileComponents();
   }));

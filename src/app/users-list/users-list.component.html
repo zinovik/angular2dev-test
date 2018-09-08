@@ -17,4 +17,4 @@
   No users found
 </div>
 
-<app-user-window [user]="user"></app-user-window>
+<app-user-window [user]="user" (windowAction)="windowAction($event)"></app-user-window>

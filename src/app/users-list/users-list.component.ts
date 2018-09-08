@@ -37,16 +37,21 @@ export class UsersListComponent implements OnInit {
   }
 
   userClicked(user: User) {
-    this.user = this.getUserById({ users: this.users, id: user.id });
+    this.user = user;
     this.location.replaceState(`users/${user.id}`);
   }
 
+  windowAction(event: Event) {
+    if (event.toString() === 'close') {
+      this.user = <User>{};
+      this.location.replaceState(`users`);
+    }
+  }
+
   getUserById({ users, id }: { users: User[], id: number }): User {
-    const originUser: User = users.find(user => {
+    return users.find(user => {
       return user.id === id;
     });
-    // Create user object copy to keep original user unchangeable
-    return JSON.parse(JSON.stringify(originUser));
   }
 
 }

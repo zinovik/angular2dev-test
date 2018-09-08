@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
-import { Location } from '@angular/common';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { User } from '../user';
 
@@ -12,9 +10,9 @@ import { User } from '../user';
 export class UserWindowComponent implements OnInit {
 
   @Input() user: User;
+  @Output() windowAction: EventEmitter<string> = new EventEmitter();
 
   constructor(
-    private location: Location,
   ) {
   }
 
@@ -22,9 +20,7 @@ export class UserWindowComponent implements OnInit {
   }
 
   closeModalClicked(): void {
-    // Zero id to hide the modal window (for next updating from the parent component)
-    this.user.id = 0;
-    this.location.replaceState(`users`);
+    this.windowAction.emit('close');
   }
 
 }
