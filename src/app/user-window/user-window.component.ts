@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 import { User } from '../user';
+
+const ESCAPE_KEYCODE = 27;
 
 @Component({
   selector: 'app-user-window',
@@ -21,6 +23,12 @@ export class UserWindowComponent implements OnInit {
 
   closeModalClicked(): void {
     this.windowAction.emit('close');
+  }
+
+  @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    if (event.keyCode === ESCAPE_KEYCODE) {
+      this.windowAction.emit('close');
+    }
   }
 
 }
