@@ -27,11 +27,20 @@ describe('UsersService', () => {
   }));
 
   it('should return users', inject([UsersService], (service) => {
-    const mockResponse: User[] = [];
-    const user1 = <User>{};
-    const user2 = <User>{};
-    mockResponse.push(user1);
-    mockResponse.push(user2);
+    const mockResponse: User[] = [
+      <User>{
+        id: 1,
+        name: 'name1',
+        username: 'username1',
+        email: 'email1',
+      },
+      <User>{
+        id: 2,
+        name: 'name2',
+        username: 'username2',
+        email: 'email2',
+      },
+    ];
 
     service.getUsers().subscribe((users: User[]) => {
       expect(users.length).toBe(2);

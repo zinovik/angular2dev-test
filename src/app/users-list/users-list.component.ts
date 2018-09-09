@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { UsersService } from './../users.service';
-
+import { UsersService } from '../users.service';
 import { User } from '../user';
 
 @Component({
@@ -25,7 +24,7 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.getUsers()
-      .subscribe((users: User[]) => {
+      .subscribe((users: User[]): void => {
         this.users = users;
         const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
         if (!isNaN(id)) {
@@ -36,13 +35,13 @@ export class UsersListComponent implements OnInit {
       });
   }
 
-  userClicked(user: User) {
+  userClicked(user: User): void {
     this.user = user;
     this.location.replaceState(`users/${user.id}`);
   }
 
-  windowAction(event: Event) {
-    if (event.toString() === 'close') {
+  windowAction(action: string): void {
+    if (action === 'close') {
       this.user = <User>{};
       this.location.replaceState(`users`);
     }

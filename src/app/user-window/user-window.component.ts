@@ -25,7 +25,8 @@ export class UserWindowComponent implements OnInit {
     this.windowAction.emit('close');
   }
 
-  @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+  @HostListener('document:keydown', ['$event'])
+  onKeydownHandler(event: KeyboardEvent): void {
     if (event.keyCode === ESCAPE_KEYCODE) {
       this.windowAction.emit('close');
     }
