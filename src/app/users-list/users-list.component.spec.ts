@@ -1,12 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { Location, LocationStrategy, PathLocationStrategy, APP_BASE_HREF } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 
 import { UsersListComponent } from './users-list.component';
 import { UserWindowComponent } from '../user-window/user-window.component';
 import { UsersService } from '../users.service';
 import { User } from '../user';
+import { routes } from '../app-routing.module';
 
 const USERS = [
   <User>{
@@ -27,27 +29,16 @@ describe('UsersListComponent', () => {
   let component: UsersListComponent;
   let fixture: ComponentFixture<UsersListComponent>;
   let location: Location;
+  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule.withRoutes(routes)],
       declarations: [UsersListComponent, UserWindowComponent],
       providers: [
         Location,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         { provide: APP_BASE_HREF, useValue: '/' },
-        {
-          provide: ActivatedRoute, useValue: {
-            snapshot: {
-              paramMap: {
-                get: (param) => {
-                  if (param === 'id') {
-                    return undefined;
-                  }
-                }
-              }
-            }
-          }
-        },
         { provide: UsersService, useClass: MockUsersService },
       ]
     })
@@ -59,6 +50,7 @@ describe('UsersListComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     location = TestBed.get(Location);
+    router = TestBed.get(Router);
   });
 
   it('should create', () => {
@@ -85,7 +77,7 @@ describe('UsersListComponent', () => {
     expect(tds[11].innerHTML).toEqual('email2');
   });
 
-  it('should test modal window opening and closing', () => {
+  it('should open and close modal window', () => {
     expect(component.user).toEqual(undefined);
 
     component.userClicked(USERS[0]);
@@ -97,7 +89,17 @@ describe('UsersListComponent', () => {
     expect(location.path()).toEqual('/users');
   });
 
-  it('should test getUserById()', () => {
+  it('should work with routes', fakeAsync(() => {
+    router.navigate(['']);
+    tick();
+    expect(location.path()).toBe('/users');
+
+    router.navigate(['/users/1']);
+    tick();
+    expect(location.path()).toBe('/users/1');
+  }));
+
+  it('should get user by id', () => {
     const user1 = component.getUserById({ users: USERS, id: 1 });
     expect(user1.name).toEqual('name1');
     expect(user1.username).toEqual('username1');
